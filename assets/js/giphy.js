@@ -1,6 +1,7 @@
+$(document).ready(function() {
 const topics = ["dogs", "cats", "cars", "fries"];
 
-// Functions
+// Function
 function displayButtons() {
     for(let i = 0; i < topics.length; i++) {
     let newBtn = $("<button>");
@@ -10,9 +11,17 @@ function displayButtons() {
     }
 };
 
+// API key: hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN
+// $.ajax({
+// url: api.giphy.com/
+// method: GET/v1/gifs/search;
+
+// })
+
 // Adds new button
 $(document).on("click", "#add-topic", "createButton");
 $(document).on("click", ".topic", "displayTopicInfo");
+// The folLOwing lines are for dynamic html
 $(document).on("click", ".stillGiphy", "clickStillGiphy");
 $(document).on("click", ".activeGiphy", "clickActiveGiphy");
 
@@ -20,6 +29,7 @@ $(document).on("click", ".activeGiphy", "clickActiveGiphy");
 function createButton() {
 let searchinput = $("#topic-input").val().trim();
 topics.push(searchinput);
+}
 // The topic rating 
 function displayTopicinfo() {
 
@@ -35,4 +45,4 @@ function clickActivegiphy() {
 
 };
 
-
+});
