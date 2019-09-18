@@ -38,16 +38,26 @@ displayButtons();
 function displayTopicInfo() {
     //here the app will make a an ajax call based on the button text
 // API key: hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN
-const query = $(this).val()
-const mainURL = "api.giphy.com/v1/gifs/search?q="+ query + "&api_key=hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN&limit=12"
+const query = $(this).text()
+const mainURL = "http://api.giphy.com/v1/gifs/search?q="+ query + "&api_key=hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN&limit=12"
 $.ajax({
 url: mainURL,
 method: "GET"
 
 })
-.then(
-    console.log(response)
-)
+.then((response)=> {
+    console.log(response.data);//this is an array of objects
+    const gifArray = response.data;
+    
+    gifArray.forEach((object, index)=> {
+        const image = response.data[index].images.fixed_height_still.url;
+        const newGif = $("<img>");
+        $("#giphyDiv").append(newGif);
+        newGif.attr("src", image);
+        console.log("response executed");
+    })
+    
+} )
 };
 
 // When clicked, if the giphy is stil, then the giphy will move 
