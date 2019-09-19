@@ -15,8 +15,7 @@ function displayButtons() {
 displayButtons();
 
 //adds new button
-$(document).on("click", "#add-topic", createButton);
-//THE FOLLOWING FUNCTION IS BROKEN
+$("#add-topic").on("click", createButton);
 function createButton(e) {
     e.preventDefault()
 let searchInput = $("#topic-input").val().trim();
