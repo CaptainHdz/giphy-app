@@ -9,6 +9,7 @@ function displayButtons() {
     let newBtn = $("<button>");
     newBtn.text(topics[i]);
     newBtn.addClass("topic")
+    newBtn.addClass("m-1 btn btn-primary shadow")
     $("#giphyBtnDiv").append(newBtn);
      }
 };
@@ -24,7 +25,7 @@ console.log(topics);
 let newBtn = $("<button>");
 console.log(topics[topics.length-1])
     newBtn.text(topics[topics.length-1]);
-    newBtn.addClass("topic");
+    newBtn.addClass("topic m-1 btn btn-primary shadow");
     $("#giphyBtnDiv").append(newBtn)
 // displayButtons();
 };
@@ -55,7 +56,7 @@ method: "GET"
         newGif.attr("src", image);
         newGif.attr("data-gif", gif);
         newGif.attr("data-image", image);
-        newGif.addClass("still")
+        newGif.addClass("still m-1 ")
         console.log("response executed");
     })
     
