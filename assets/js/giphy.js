@@ -49,9 +49,13 @@ method: "GET"
     
     gifArray.forEach((object, index)=> {
         const image = response.data[index].images.fixed_height_still.url;
+        const gif = response.data[index].images.fixed_height.url;
         const newGif = $("<img>");
         $("#giphyDiv").append(newGif);
         newGif.attr("src", image);
+        newGif.attr("data-gif", gif);
+        newGif.attr("data-image", image);
+        newGif.addClass("still")
         console.log("response executed");
     })
     
@@ -68,19 +72,22 @@ method: "GET"
 
 
 
-// The topic rating 
+//turn the gif off
+$(document).on("click", ".active", function() {
+    $(this).attr("src", $(this).attr("data-image"));
+$(this).removeClass("active")
+$(this).addClass("still")
+})
+//turns the gif on
+$(document).on("click", ".still", function() {
+    console.log("bop")
+ $(this).attr("src", $(this).attr("data-gif"));
+$(this).removeClass("still")
+$(this).addClass("active")
+
+})
 
 
-// When clicked, if the giphy is stil, then the giphy will move 
-function clickStillGiphy() {
-    let giphyActive = false;
 
-};
-
-// When clicked, if the giphy is active, then the giphy will stop moving
-function clickActivegiphy() {
-    let giphyActive = true;
-
-};
 
 });
