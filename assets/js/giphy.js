@@ -10,34 +10,33 @@ function displayButtons() {
     newBtn.text(topics[i]);
     newBtn.addClass("topic")
     $("#giphyBtnDiv").append(newBtn);
-    
-    }
+     }
 };
 displayButtons();
 
-
-
-// Adds new button
-$("#add-topic").on("click", createButton); 
-$(".topic").on("click", displayTopicInfo);
-// The following lines are for dynamic html
-$(".stillGiphy").on("click", clickStillGiphy);
-$(".activeGiphy").on("click", clickActiveGiphy);
-
-// The function is gonna take the text on #topic-input when #add-topic is clicked on, and add it to the array in topics var. Everything in the array should get a button created.
+//adds new button
+$(document).on("click", "#add-topic", createButton);
+//THE FOLLOWING FUNCTION IS BROKEN
 function createButton(e) {
-    console.log("createButton just executed you goof")
     e.preventDefault()
-let searchinput = $("#topic-input").val().trim();
-topics.push(searchinput);
-
-displayButtons();
+let searchInput = $("#topic-input").val().trim();
+topics.push(searchInput);
+console.log(topics);
+let newBtn = $("<button>");
+console.log(topics[topics.length-1])
+    newBtn.text(topics[topics.length-1]);
+    newBtn.addClass("topic");
+    $("#giphyBtnDiv").append(newBtn)
+// displayButtons();
 };
 
-// The topic rating 
-function displayTopicInfo() {
+//This block of code makes the ajax call to retrieve the gifs
+$(document).on("click", ".topic", displayTopicGif);
+function displayTopicGif() {
     //here the app will make a an ajax call based on the button text
 // API key: hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN
+$("#giphyDiv").empty()
+console.log("Request in progress");
 const query = $(this).text()
 const mainURL = "http://api.giphy.com/v1/gifs/search?q="+ query + "&api_key=hXBN5LO4EL4KjY60GVR4Pxz5Tyh5zcNN&limit=12"
 $.ajax({
@@ -59,6 +58,19 @@ method: "GET"
     
 } )
 };
+
+
+
+
+// The following lines are for dynamic html
+// $(".stillGiphy").on("click", clickStillGiphy);
+// $(".activeGiphy").on("click", clickActiveGiphy);
+
+
+
+
+// The topic rating 
+
 
 // When clicked, if the giphy is stil, then the giphy will move 
 function clickStillGiphy() {
