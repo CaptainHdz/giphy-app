@@ -1,7 +1,15 @@
-# giphy-app
+# Giphy-app
 
+**Link to the app:**
+https://captainhdz.github.io/giphy-app/
+
+## Summary
 Search GIF's,
 Pause and Play Them
 
-Link to the app:
-https://captainhdz.github.io/giphy-app/
+##  Technologies
+-Javascript
+-jQuery
+-Giphy API
+
+
