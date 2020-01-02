@@ -19,6 +19,7 @@
 }
 
 .topic {
+    background-color: transparent;
     border: 2px solid rgb(255, 255, 255);
     color: white;
     transition: .5s;
