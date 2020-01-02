@@ -24,7 +24,7 @@ topics.push(searchInput);
 console.log(topics);
 let newBtn = $("<button>");
     newBtn.text(topics[topics.length-1]); //Selects the last string in the array
-    newBtn.addClass("topic m-1 shadow");
+    newBtn.addClass("topic m-1 btn shadow");
     $("#giphyBtnDiv").append(newBtn)
 // displayButtons();
 };
