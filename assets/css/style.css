@@ -1,0 +1,30 @@
+.dark {
+    background-color: rgb(36, 35, 35);
+}
+
+.dark-blue {
+    background-color: rgb(27, 41, 119);
+}
+
+.submit-btn {
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    transition: .5s;
+}
+
+.submit-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.topic {
+    border: 2px solid rgb(255, 255, 255);
+    color: white;
+    transition: .5s;
+}
+
+.topic:hover {
+    background-color: white;
+    color: black;
+}
